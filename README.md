@@ -1,4 +1,4 @@
-# <Road Report>
+# Road Report
 
 ## サイト概要
 道路整備のための発信サイトです。
