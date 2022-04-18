@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RoadReport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!--<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>-->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <div class="navbar-brand p-3" >
+            <%= link_to root_path do %>
+              Road Report
+            <% end %>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li class="nav-item">
+                <%= link_to root_path ,class: "btn btn-default" do %>
+                  投稿一覧
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to root_path ,class: "btn btn-default" do %>
+                  会員一覧
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to root_path ,class: "btn btn-default" do %>
+                  地図
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_admin_session_path, method: :delete ,class: "btn btn-default" do %>
+                  ログアウト
+                <% end %>
+              </li>
+            <% elsif user_signed_in? %>
+               <li class="nav-item">
+                <%= link_to root_path ,class: "btn btn-default" do %>
+                  マイページ
+                <% end %>
+              </li>
+               <li class="nav-item">
+                <%= link_to root_path ,class: "btn btn-default" do %>
+                  投稿する
+                <% end %>
+              </li>
+               <li class="nav-item">
+                <%= link_to root_path ,class: "btn btn-default" do %>
+                  投稿一覧
+                <% end %>
+              </li>
+               <li class="nav-item">
+                <%= link_to destroy_user_session_path, method: :delete ,class: "btn btn-default" do %>
+                  ログアウト
+                <% end %>
+              </li>
+            <% else %>
+             <li class="nav-item">
+                <%= link_to root_path,class: "btn btn-default" do %>
+                  投稿一覧
+                <% end %>
+              </li>
+             <li class="nav-item">
+                <%= link_to new_user_registration_path ,class: "btn btn-default" do %>
+                  新規登録
+                <% end %>
+              </li>
+             <li class="nav-item">
+                <%= link_to new_user_session_path ,class: "btn btn-default" do %>
+                  ログイン
+                <% end %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>
