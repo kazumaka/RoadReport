@@ -1,1 +1,22 @@
-<p>ss</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <p>
+                このサイトは○○市道路整備のための発信サイトです。<br>
+                市内の道路に関するご意見・ご要望をお聞かせください。<br>
+                市民の皆様の投稿で○○市の道路が変わります！！
+            </p>
+            投稿するためには会員登録が必要です。<br>
+            新規登録は
+            <%= link_to new_user_registration_path do %>
+            こちら
+            <% end %>
+            <div>
+            <%= link_to root_path,class: "btn btn-success" do %>
+            投稿する
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>

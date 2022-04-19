@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   scope module: :public do
     root to: 'homes#top'
+    resources :posts
+    get 'posts/list' => 'posts#list',as: 'list'
   end
 end
