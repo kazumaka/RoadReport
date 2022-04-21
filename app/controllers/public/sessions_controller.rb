@@ -25,4 +25,14 @@ class Public::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+  before_action :configure_permit_parameters
+  
+  def after_sign_in_path_for(resource)
+    new_post_path
+  end
+  
+  protected
+  def configure_permit_parameters
+    devise_parameter_sanitizer.permit(:sign_in, keys:[:name])
+  end
 end
