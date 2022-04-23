@@ -20,6 +20,15 @@
         <label>写真</label>
         <%= f.file_field :image %>
       </div>
+      <div class="form-groru">
+        <label>写真</label>
+        <%= f.file_field :image %>
+      </div>
+      <%= f.field_for :spot do |s| %>
+      <div class="form-groru">
+        <label>住所</label>
+      </div>
+      <% end %>
       <%= f.submit "投稿する",class: "btn btn-success" %>
       <% end %>
     </div>
