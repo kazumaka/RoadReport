@@ -3,6 +3,7 @@ class Public::PostsController < ApplicationController
   
   def new
     @post = Post.new
+    @post.build_spot
   end
   
   def create
@@ -41,6 +42,6 @@ class Public::PostsController < ApplicationController
   
   private
   def post_params
-    params.require(:post).permit(:post_name, :introduction, :road_name, :image)
+    params.require(:post).permit(:post_name, :introduction, :road_name, :image,spot_attributes: [:address])
   end
 end
