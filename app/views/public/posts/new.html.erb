@@ -20,16 +20,12 @@
         <label>写真</label>
         <%= f.file_field :image %>
       </div>
-      <div class="form-groru">
-        <label>写真</label>
-        <%= f.file_field :image %>
-      </div>
-      <%= f.field_for :spot do |s| %>
+      <%= f.fields_for :spot do |s| %>
       <div class="form-groru">
         <label>住所</label>
-        <%= s.text_field :address,placeholder :"スポットを入力",id :"address" %>
+        <%= s.text_field :address,placeholder: "スポットを入力",id: "address" %>
       </div>
-      <%= s.submit "検索する",onclick: "codeAddress()",class :"btn btn-success" %>
+      <%= s.submit "検索する",onclick: "codeAddress()",class: "btn btn-success" %>
       <% end %>
       <div class="map" id="map" style="height: 320px; width: 640px;"></div>
       <%= f.submit "投稿する",class: "btn btn-success" %>
