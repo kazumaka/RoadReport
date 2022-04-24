@@ -60,4 +60,3 @@ gem "gmaps4rails"
 gem "geocoder"
 gem "gon"
 gem "dotenv-rails"
-gem 'haml-rails'
