@@ -10,7 +10,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-       redirect_to root_path
+       redirect_to posts_path
     else
       @post = Post.new
       @post.build_map
@@ -19,7 +19,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-
+    @posts = Post.all
   end
 
   def list
@@ -44,6 +44,6 @@ class Public::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:post_name, :introduction, :road_name, :image,map_attributes: [:id, :address, :latitude, :longitude])
-  end
+    params.require(:post).permit(:post_name, :introduction, :road_name, :image,map_attributes: [:id, :address, :latitude, :longitude]).merge(user_id: current_user.id)
+   end
 end
