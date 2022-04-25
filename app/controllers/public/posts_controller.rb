@@ -27,7 +27,8 @@ class Public::PostsController < ApplicationController
   end
 
   def show
-
+    @post = Post.find(params[:id])
+    @map = Map.find(params[:id])
   end
 
   def edit
@@ -45,5 +46,5 @@ class Public::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:post_name, :introduction, :road_name, :image,map_attributes: [:id, :address, :latitude, :longitude]).merge(user_id: current_user.id)
-   end
+ end
 end
