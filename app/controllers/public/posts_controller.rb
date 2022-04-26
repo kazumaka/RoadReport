@@ -10,9 +10,12 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-       redirect_to posts_path
+      map = Map.new(post_id: @post.id)
+      map.address = params[:map][:address]
+      map.save
+      redirect_to posts_path
     else
-      @post = Post.new
+      @post = Post.news
       @post.build_map
       render :new
     end
@@ -28,7 +31,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @map = Map.find(params[:id])
+    @map = @post.map
   end
 
   def edit
@@ -39,12 +42,12 @@ class Public::PostsController < ApplicationController
 
   end
 
-  def destr
+  def destroy
 
   end
 
   private
   def post_params
-    params.require(:post).permit(:post_name, :introduction, :road_name, :image,map_attributes: [:id, :address, :latitude, :longitude]).merge(user_id: current_user.id)
- end
+    params.require(:post).permit(:post_name, :introduction, :road_name, :image, map_attributes: [:address]).merge(user_id: current_user.id)
+  end
 end
