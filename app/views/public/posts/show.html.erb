@@ -58,7 +58,7 @@
     <%= link_to edit_post_path,class: "btn btn-success" do %>
       投稿内容を編集
     <% end %>
-    <%= link_to root_path,class: "btn btn-danger" do %>
+    <%= link_to post_path(@post.id),class: "btn btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" do %>
       投稿を削除
     <% end %>
   <% end %>
