@@ -2,7 +2,10 @@
   <label class="mt-4 mb-4 lead bg-light">投稿詳細画面</label>
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag @post.image,size: "200x200" %>
+      <div><%= image_tag @post.image,size: "200x200" %></div>
+      <div><%= @map.address %></div>
+
+
       <div id="map"></div>
       <style>
         #map {
@@ -51,4 +54,12 @@
       </div>
     </div>
   </div>
+  <% if @post.user == current_user %>
+    <%= link_to edit_post_path,class: "btn btn-success" do %>
+      投稿内容を編集
+    <% end %>
+    <%= link_to root_path,class: "btn btn-danger" do %>
+      投稿を削除
+    <% end %>
+  <% end %>
 </div>

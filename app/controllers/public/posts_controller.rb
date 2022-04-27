@@ -12,9 +12,11 @@ class Public::PostsController < ApplicationController
     if @post.save
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
+      # binding.pry
       map.save
       redirect_to posts_path
     else
+      binding.pry
       @post = Post.news
       @post.build_map
       render :new
@@ -35,11 +37,17 @@ class Public::PostsController < ApplicationController
   end
 
   def edit
-
+    @post = Post.find(params[:id])
+    @map = @post.map
   end
 
   def update
-
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to post_path(@post.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
