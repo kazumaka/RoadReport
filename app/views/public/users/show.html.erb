@@ -5,7 +5,7 @@
       <label class="mt-4 mb-4 lead bg-light">マイページ</label>
       <div class="mb-3">
         <label class="mr-3">登録情報</label>
-        <%= link_to root_path,class: "btn btn-success" do %>
+        <%= link_to user_edit_path,class: "btn btn-success" do %>
           編集する
         <% end %>
       </div>
@@ -21,7 +21,7 @@
           </tr>
         </tbody>
       </table>
-      <%= link_to root_path,class: "btn btn-primary" do %>
+      <%= link_to list_path,class: "btn btn-primary" do %>
         投稿一覧を見る
       <% end %>
     </div>

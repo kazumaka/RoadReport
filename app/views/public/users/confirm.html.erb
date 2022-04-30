@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 mt-5">
+      <h3>本当に退会しますか？</h3>
+      <p>
+        退会すると新たに投稿できなくなります。<br>
+        投稿するためには再度、会員登録が必要となります。<br>
+        退会する場合は「退会する」をクリックしてください。
+      </p>
+
+      <%= link_to user_edit_path,class: "btn btn-primary mr-5 mt-3" do %>
+        退会しない
+      <% end %>
+      <%= link_to secession_path,class: "btn btn-danger ml-5 mt-3",method: :patch do %>
+        退会する
+      <% end %>
+
+    </div>
+  </div>
+</div>

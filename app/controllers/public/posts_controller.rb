@@ -28,7 +28,8 @@ class Public::PostsController < ApplicationController
   end
 
   def list
-
+    @user = current_user
+    @posts = @user.posts.all
   end
 
   def show

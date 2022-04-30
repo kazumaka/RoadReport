@@ -1,0 +1,25 @@
+<div class="container">
+  <label class="mt-4 mb-4 lead bg-light"><%= @user.name %>さんの投稿一覧</label>
+  <div class="row">
+    <table class="table border">
+      <thead>
+        <tr>
+          <th>投稿日時</th>
+          <th>投稿名</th>
+        </tr>
+      </thead>
+      <% @posts.each do |post| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to post_path(post.id) do %>
+            <%= l post.created_at %>
+            <% end %>
+          </td>
+          <td><%= post.post_name %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
