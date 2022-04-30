@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <label class="mt-4 mb-4 lead bg-light">マイページ</label>
+      <div class="mb-3">
+        <label class="mr-3">登録情報</label>
+        <%= link_to root_path,class: "btn btn-success" do %>
+          編集する
+        <% end %>
+      </div>
+      <table class="table border">
+        <tbody>
+          <tr>
+            <td>氏名</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @user.email %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to root_path,class: "btn btn-primary" do %>
+        投稿一覧を見る
+      <% end %>
+    </div>
+  </div>
+</div>

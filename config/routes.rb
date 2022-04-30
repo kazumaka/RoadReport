@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
  devise_for :users,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
@@ -13,5 +13,10 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     resources :posts
     get 'posts/list' => 'posts#list',as: 'list'
+    get 'users/my_page' => 'users#show',as: 'my_page'
+    get 'users/ragistration_edit' => 'users#edit',as: 'user_edit'
+    patch 'users/ragistration_edit' => 'users#update',as: 'user_update'
+    get 'users/confirm' => 'users#confirm',as: 'confirm'
+    patch 'users/secession' => 'users#secession',as: 'secession'
   end
 end
