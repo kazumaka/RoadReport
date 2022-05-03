@@ -1,0 +1,11 @@
+<div class="container">
+  <label class="mt-4 mb-4 lead bg-light">投稿詳細/編集画面</label>
+  <%= render 'public/posts/show', post: @post, map: @map %>
+  <%= form_with model: @post,url: admin_post_path do |f| %>
+    <div class="form-group">
+      <label>事業化ステータス</label>
+      <%= f.radio_button :is_active, "false",checked: true %>保留   <%= f.radio_button :is_active, "true" %>事業化候補
+    </div>
+    <%= f.submit "変更を保存",class: "btn btn-success" %>
+  <% end %>
+</div>

@@ -19,4 +19,11 @@ Rails.application.routes.draw do
     get 'users/confirm' => 'users#confirm',as: 'confirm'
     patch 'users/secession' => 'users#secession',as: 'secession'
   end
+  
+  namespace :admin do
+    root to: 'posts#top'
+    resources :posts, only:[:index, :show, :update]
+    get 'posts/list' => 'posts#list',as: 'admin_list'
+  end
+  
 end

@@ -1,59 +1,6 @@
 <div class="container">
   <label class="mt-4 mb-4 lead bg-light">投稿詳細画面</label>
-  <div class="row">
-    <div class="col-md-4">
-      <div><%= image_tag @post.image,size: "200x200" %></div>
-      <div><%= @map.address %></div>
-
-
-      <div id="map"></div>
-      <style>
-        #map {
-            height: 200px;
-            width: 200px;
-        }
-      </style>
-      <script>
-      let map
-      let marker
-        function initMap(){
-            geocoder = new google.maps.Geocoder()
-
-            map = new google.maps.Map(document.getElementById('map'), {
-              center:  {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>},
-              zoom: 15,
-            });
-
-             marker = new google.maps.Marker({
-              position:  {lat: <%= @map.latitude %>, lng: <%= @map.longitude %>},
-              map: map
-            });
-          }
-      </script>
-      <script
-        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_KEY'] %>&callback=initMap"
-        async defer>
-      </script>
-    </div>
-    <div class="col-md-6">
-      <div class="mb-5">
-        <label>投稿名</label>
-        <%= @post.post_name %>
-      </div>
-      <div class="mb-5">
-        <label>投稿者</label>
-        <%= @post.user.name %>
-      </div>
-      <div class="mb-5">
-        <label>投稿日時</label>
-        <%= l @post.created_at %>
-      </div>
-      <div class="mb-5">
-        <label>ご意見・ご要望</label>
-        <%= @post.introduction %>
-      </div>
-    </div>
-  </div>
+  <%= render 'show', post: @post, map: @map %>
   <% if @post.user == current_user %>
     <%= link_to edit_post_path,class: "btn btn-success" do %>
       投稿内容を編集

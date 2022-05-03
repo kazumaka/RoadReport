@@ -1,0 +1,40 @@
+<div class="container">
+  <label class="mt-4 mb-4 lead bg-light">投稿一覧画面</label>
+  <div class="row">
+    <label>
+    <%= link_to admin_posts_path,class: "btn btn-primary" do %>
+      事業化候補一覧へ
+    <% end %>
+    </label>
+    <table class="table border">
+      <thead>
+        <tr>
+          <th>投稿日時</th>
+          <th>投稿名</th>
+          <th>投稿者</th>
+          <th>事業化ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+        <tr>
+          <td>
+            <%= link_to admin_post_path(post.id) do %>
+            <%= l post.created_at %>
+            <% end %>
+          </td>
+          <td><%= post.post_name %></td>
+          <td><%= post.user.name %></td>
+          <td>
+            <% if post.is_active == true %>
+              <label class="text-danger">事業化候補</label>
+            <% else %>
+              保留
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
