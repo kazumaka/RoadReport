@@ -11,6 +11,11 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @map = @post.map
   end
+  
+  def list
+    @user = User.find(params[:id])
+    @posts = @user.posts.all
+  end
 
   def update
     @post = Post.find(params[:id])
