@@ -23,8 +23,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'posts#top'
     resources :users,only:[:index, :edit, :update]
-    get 'posts/list' => 'posts#list',as: 'list'
-    resources :posts, only:[:index, :show, :update]
+    resources :posts, only:[:index, :show, :update] do
+      member do
+        get 'list'
+      end
+    end
   end
 
 end
