@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'posts/list' => 'posts#list',as: 'list'
-    resources :posts
+    resources :posts do
+      resources :post_comments,only:[:create]
+    end
     get 'users/my_page' => 'users#show',as: 'my_page'
     get 'users/ragistration_edit' => 'users#edit',as: 'user_edit'
     patch 'users/ragistration_edit' => 'users#update',as: 'user_update'

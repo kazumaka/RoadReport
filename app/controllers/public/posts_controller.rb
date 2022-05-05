@@ -35,6 +35,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @map = @post.map
+    @post_comment = PostComment.new
   end
 
   def edit
