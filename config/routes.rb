@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'posts/list' => 'posts#list',as: 'list'
     resources :posts do
-      resources :post_comments,only:[:create]
+      resources :post_comments,only:[:create, :destroy]
     end
     get 'users/my_page' => 'users#show',as: 'my_page'
     get 'users/ragistration_edit' => 'users#edit',as: 'user_edit'

@@ -1,6 +1,11 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-4">
+      <% if admin_signed_in? %>
+      <label class="mt-4 mb-4 lead bg-light">投稿詳細/編集画面</label>
+      <% else %>
+      <label class="mt-4 mb-4 lead bg-light">投稿詳細画面</label>
+      <% end %>
       <div><%= image_tag post.image,size: "200x200" %></div>
       <div><%= map.address %></div>
 
@@ -34,8 +39,8 @@
         async defer>
       </script>
     </div>
-    <div class="col-md-6">
-      <div class="mb-5">
+    <div class="col-md-6 mt-5">
+      <div class="mb-5 mt-3">
         <label>投稿名</label>
         <%= post.post_name %>
       </div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <label class="mt-4 mb-4 lead bg-light">投稿詳細/編集画面</label>
+  
   <%= render 'public/posts/show', post: @post, map: @map %>
   <%= form_with model: @post,url: admin_post_path do |f| %>
     <div class="form-group">

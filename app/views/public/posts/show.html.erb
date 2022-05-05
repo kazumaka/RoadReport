@@ -1,26 +1,33 @@
 <div class="container">
-  <label class="mt-4 mb-4 lead bg-light">投稿詳細画面</label>
   <%= render 'show', post: @post, map: @map %>
-  <div class="mt-5">
-    <% if @post.user == current_user %>
-      <%= link_to edit_post_path,class: "btn btn-success" do %>
-        投稿内容を編集
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="mt-5 col-md-6">
+      <% if @post.user == current_user %>
+        <%= link_to edit_post_path,class: "btn btn-success" do %>
+          投稿内容を編集
+        <% end %>
+        <%= link_to post_path(@post.id),class: "btn btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+          投稿を削除
+        <% end %>
+      <% else %>
+        <%= form_with model:[@post, @post_comment] do |f| %>
+          <%= f.text_area :comment, rows: "5", placeholder: "コメントを入力" %>
+          <%= f.submit "送信する" %>
+        <% end %>
       <% end %>
-      <%= link_to post_path(@post.id),class: "btn btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-        投稿を削除
+      <p>コメント件数：<%= @post.post_comments.count %></p>
+      <% @post.post_comments.each do |post_comment| %>
+      <p>
+        <%= l post_comment.created_at, format: :short %><%= post_comment.user.name %><br>
+        <%= post_comment.comment %>
+        <% if post_comment.user == current_user %>
+          <%= link_to post_post_comment_path(post_comment.post, post_comment),method: :delete do %>
+            コメントを削除
+          <% end %>
+        <% end %>
+      </p>
       <% end %>
-    <% else %>
-      <%= form_with model:[@post, @post_comment] do |f| %>
-        <%= f.text_area :comment, rows: "5", placeholder: "コメントを入力" %>
-        <%= f.submit "送信する" %>
-      <% end %>
-    <% end %>
-    <p>コメント件数：<%= @post.post_comments.count %></p>
-    <% @post.post_comments.each do |post_comment| %>
-    <p>
-      <%= l post_comment.created_at, format: :short %><%= post_comment.user.name %><br>
-      <%= post_comment.comment %>
-    </p>
-    <% end %>
+    </div>
   </div>
 </div>

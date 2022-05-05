@@ -5,15 +5,15 @@
       <%= form_with model: @post, local: true, multipart: true do |f| %>
       <div class="form-group,mb-5">
         <label>投稿名</label>
-        <%= f.text_field :post_name %>(例)○○交差点の渋滞について
+        <%= f.text_field :post_name, placeholder: "○○交差点の渋滞について" %>
       </div>
       <div class="form-group,mb-5,border">
         <label>道路名</label>
-        <%= f.text_field :road_name %>(例)国道○○線○○交差点
+        <%= f.text_field :road_name, placeholder: "国道○○線" %>
       </div>
       <div class="form-group,mt-5">
         <label>ご意見・ご要望</label>
-        <%= f.text_area :introduction %>
+        <%= f.text_area :introduction, rows: "5", placeholder: "○○交差点では通勤の時間帯に渋滞が発生しています。渋滞対策を検討願います。" %>
       </div>
       <div class="form-group,mt-5">
         <label>写真</label>
