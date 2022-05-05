@@ -1,20 +1,20 @@
 class Admin::PostsController < ApplicationController
   def top
-    @posts = Post.all
+    @posts = Post.page(params[:page])
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page])
   end
 
   def show
     @post = Post.find(params[:id])
     @map = @post.map
   end
-  
+
   def list
     @user = User.find(params[:id])
-    @posts = @user.posts.all
+    @posts = @user.posts.page(params[:page])
   end
 
   def update

@@ -24,12 +24,12 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page])
   end
 
   def list
     @user = current_user
-    @posts = @user.posts.all
+    @posts = @user.posts.page(params[:page])
   end
 
   def show
