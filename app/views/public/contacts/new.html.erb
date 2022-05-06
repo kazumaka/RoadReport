@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 correct-msg-main">
+      <%= form_with model: @contact, local: true do |f| %>
+      <div class="contact-form">
+        <div class="correct-text-field">
+          <label>お名前</label>
+          <%= f.text_field:correct_name, placeholder: "お名前", class: "input-form" %>
+        </div>
+        <div class="correct-text-field">
+          <label>お問い合わせ内容</label>
+          <%= f.text_area:content, placeholder: "お問い合わせ内容を入力", class: "input-form" %>
+        </div>
+        <div class="send-btn-contents">
+          <div class="register-btn">
+            <%= f.submit "送信", class: "btn btn-success" %>
+          </div>
+        </div>
+        <div class="register-btn">
+          <%= link_to "もどる", root_path, class:"register-red-btn", style:"background-color: #aaa" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

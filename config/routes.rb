@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     patch 'users/ragistration_edit' => 'users#update',as: 'user_update'
     get 'users/confirm' => 'users#confirm',as: 'confirm'
     patch 'users/secession' => 'users#secession',as: 'secession'
+    resources :contacts, only:[:new, :create]
   end
 
   namespace :admin do
