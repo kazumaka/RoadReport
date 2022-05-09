@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'posts#top'
     resources :users,only:[:index, :edit, :update]
+    resources :maps,only:[:index]
     resources :posts, only:[:index, :show, :update] do
       member do
         get 'list'

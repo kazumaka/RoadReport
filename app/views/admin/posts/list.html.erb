@@ -12,7 +12,11 @@
       <tbody>
         <% @posts.each do |post| %>
         <tr>
-          <td><%= l post.created_at %></td>
+          <td>
+            <%= link_to admin_post_path(post.id) do %>
+            <%= l post.created_at %>
+            <% end %>
+          </td>
           <td><%= post.post_name %></td>
           <td>
             <% if post.is_active == true %>
