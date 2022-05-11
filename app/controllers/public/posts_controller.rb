@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
       map.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: '投稿に成功しました'
     else
       @post = Post.new
       @post.build_map
