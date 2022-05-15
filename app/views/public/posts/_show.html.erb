@@ -42,19 +42,23 @@
     <div class="col-md-6 mt-5">
       <div class="mb-5 mt-3">
         <label>投稿名</label>
-        <%= post.post_name %>
+        <div class="mt-3"><%= post.post_name %></div>
+      </div>
+      <div class="mb-5">
+        <label>道路名</label>
+        <div class="mt-3"><%= post.road_name %></div>
       </div>
       <div class="mb-5">
         <label>投稿者</label>
-        <%= post.user.name %>
+        <div class="mt-3"><%= post.user.name %></div>
       </div>
       <div class="mb-5">
         <label>投稿日時</label>
-        <%= l post.created_at %>
+        <div class="mt-3"><%= l post.created_at %></div>
       </div>
       <div class="mb-5">
         <label>ご意見・ご要望</label>
-        <%= post.introduction %>
+        <div class="mt-3"><%= post.introduction %></div>
       </div>
     </div>
   </div>
