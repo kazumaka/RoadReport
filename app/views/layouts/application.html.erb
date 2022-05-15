@@ -98,11 +98,6 @@
               <% end %>
             <% end %>
           </div>
-          <% if user_signed_in? %>
-            <%= link_to new_contact_path( user_id: current_user.id ), class: "ml-4" do %>
-              お問い合わせはこちら
-            <% end %>
-          <% end %>
         </div>
       </nav>
     </header>
