@@ -12,7 +12,7 @@
         <% end %>
       <% else %>
         <%= form_with model:[@post, @post_comment] do |f| %>
-          <%= f.text_area :comment, rows: "5", placeholder: "コメントを入力" %>
+          <%= f.text_area :comment, rows: "5", placeholder: "コメントを入力(コメントするためにはログインが必要)" %>
           <%= f.submit "送信する" %>
         <% end %>
       <% end %>

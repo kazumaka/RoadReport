@@ -13,7 +13,7 @@ class Public::PostsController < ApplicationController
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
       map.save
-      redirect_to posts_path, notice: '投稿に成功しました'
+      redirect_to posts_path
     else
       @post = Post.new
       @post.build_map
@@ -33,6 +33,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @map = @post.map
+    gon.lat = @map.latitude
+    gon.lng = @map.longitude
     @post_comment = PostComment.new
   end
 
