@@ -45,8 +45,9 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @map = @post.map
     if @post.update(post_params)
-      @map = Map.update(post_id: @post.id)
+      @map.update
       redirect_to post_path(@post.id)
     else
       render :edit
