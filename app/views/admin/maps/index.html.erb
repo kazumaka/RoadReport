@@ -31,6 +31,13 @@
               title: contentString
           });
 
+          let infowindow = new google.maps.InfoWindow({
+            position: markerLatLng,
+            content: "<%= link_to post_path(post.id), 'data-turbolinks': false do %><%= m.address %><% end %>"
+          }); //ここで詳細ページへのリンクを表示させる
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
           })();
       <% end %>
       }
