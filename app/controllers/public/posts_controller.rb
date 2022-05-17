@@ -48,7 +48,7 @@ class Public::PostsController < ApplicationController
     if @post.update(post_params)
       @map = @post.map
       @map.address = params[:map][:address]
-      @map.update
+      @map.update(map_params)
       redirect_to post_path(@post.id)
     else
       render :edit
@@ -64,5 +64,9 @@ class Public::PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:post_name, :introduction, :road_name, :image, map_attributes: [:address]).merge(user_id: current_user.id)
+  end
+  
+  def map_params
+    params.require(:map).permit(:adrress, :latitude, :longitude)
   end
 end
