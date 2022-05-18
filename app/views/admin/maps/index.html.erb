@@ -34,7 +34,7 @@
 
           var infowindow = new google.maps.InfoWindow({
             position: latlng,
-            content: "<a href='<%= m.post.present? ? admin_post_url(m.post.id): "" %>', target='_blank', 'data-turbolinks'= false><%= m.address %></a>"
+            content: "<a href='<%= m.post.present? ? admin_post_url(m.post.id): "" %> 'data-turbolinks'= false><%= m.address %></a>"
           }); //ここで詳細ページへのリンクを表示させる
           marker.addListener('click', function() {
             infowindow.open(map, marker);
