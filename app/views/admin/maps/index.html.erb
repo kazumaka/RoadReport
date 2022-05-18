@@ -30,8 +30,8 @@
               map: map,
               title: contentString
           });
-          
-          let infowindow = new google.maps.InfoWindow({
+
+          var infowindow = new google.maps.InfoWindow({
             position: markerLatLng,
             content: "<a href='<%= post_url(@post.id) %>' target='_blank', 'data-turbolinks'= false><%= m.address %></a>"
           }); //ここで詳細ページへのリンクを表示させる
