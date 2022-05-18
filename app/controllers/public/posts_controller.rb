@@ -38,6 +38,14 @@ class Public::PostsController < ApplicationController
     @post_comment = PostComment.new
   end
 
+  before_action :ensure_current_user, {only: [:edit, :update]}
+  
+  def ensure_current_user
+   if current_user.id != Post.find(params[:id]).user_id
+     redirect_to posts_path
+   end
+  end
+
   def edit
     @post = Post.find(params[:id])
     @map = @post.map
