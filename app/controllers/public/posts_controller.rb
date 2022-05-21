@@ -9,10 +9,11 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
+    　@post.save
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
       map.save
+    if @post.save && map.save
       redirect_to posts_path
     else
       @post = Post.new
@@ -39,7 +40,7 @@ class Public::PostsController < ApplicationController
   end
 
   before_action :ensure_current_user, {only: [:edit, :update]}
-  
+
   def ensure_current_user
    if current_user.id != Post.find(params[:id]).user_id
      redirect_to posts_path
@@ -73,7 +74,7 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:post_name, :introduction, :road_name, :image, map_attributes: [:address]).merge(user_id: current_user.id)
   end
-  
+
   def map_params
     params.require(:map).permit(:adrress, :latitude, :longitude)
   end
