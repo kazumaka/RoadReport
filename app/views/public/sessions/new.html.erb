@@ -6,7 +6,7 @@
       <label class="mt-4 mb-4 lead bg-light">会員の方はこちらからログイン</label>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field ml-3">
+        <div class="field ml-3 mb-5">
           <%= f.label :メールアドレス %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "ml-3" %>
         </div>
@@ -14,7 +14,7 @@
         <div class="field ml-3 mb-3">
           <%= f.label :パスワード %>
           <%= f.password_field :password, autocomplete: "current-password", class: "ml-5 mr-4" %>
-          <%= f.submit "ログイン", class: "btn btn-success" %>
+          <%= f.submit "ログイン", class: "btn btn-success ml-4" %>
         </div>
 
         <!--<% if devise_mapping.rememberable? %>-->
