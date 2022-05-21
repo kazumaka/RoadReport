@@ -8,24 +8,18 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    success = true
     ApplicationRecord.transaction do
       @post = Post.new(post_params)
-      success &= @post.save
+      @post.save
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
-      success &= map.save
-      unless success do
-        rescue ActiveRecord::RecordInvalid
-      end
-    end
-    if @post.id.nil?
-      @post = Post.new
-      @post.build_map
-      render :new
-    else
+      map.save
       redirect_to posts_path
     end
+  rescue ActiveRecord::RecordInvalid
+    @post = Post.new
+    @post.build_map
+    render :new
   end
 
   def index
