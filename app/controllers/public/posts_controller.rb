@@ -8,12 +8,12 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    ApplicationRecord.transaction do
+    ActiveRecord::Base.transaction do
       @post = Post.new(post_params)
-      @post.save
+      @post.save!
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
-      map.save
+      map.save!
       redirect_to posts_path
     end
   rescue ActiveRecord::RecordInvalid
