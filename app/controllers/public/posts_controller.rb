@@ -15,7 +15,7 @@ class Public::PostsController < ApplicationController
       map.address = params[:map][:address]
       map.save
     end
-    if @post.nil?
+    if @post.id.nil?
       @post = Post.new
       @post.build_map
       render :new
