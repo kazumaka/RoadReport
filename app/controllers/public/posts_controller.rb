@@ -14,12 +14,13 @@ class Public::PostsController < ApplicationController
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
       map.save
-      redirect_to posts_path
     end
     if @post.nil?
       @post = Post.new
       @post.build_map
       render :new
+    else
+      redirect_to posts_path
     end
   end
 
