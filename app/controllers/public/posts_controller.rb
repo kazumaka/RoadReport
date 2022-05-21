@@ -77,4 +77,5 @@ class Public::PostsController < ApplicationController
   def map_params
     params.require(:map).permit(:adrress, :latitude, :longitude)
   end
+
 end
