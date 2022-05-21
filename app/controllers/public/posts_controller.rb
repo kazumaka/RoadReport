@@ -8,12 +8,16 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    ActiveRecord::Base.transaction do
+    success = true
+    ApplicationRecord.transaction do
       @post = Post.new(post_params)
-      @post.save
+      success &= @post.save
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
-      map.save
+      success &= map.save
+      unless success do
+        rescue ActiveRecord::RecordInvalid
+      end
     end
     if @post.id.nil?
       @post = Post.new
