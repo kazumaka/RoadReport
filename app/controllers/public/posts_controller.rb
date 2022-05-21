@@ -9,7 +9,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-  　if @post.save
+    if @post.save
       map = Map.new(post_id: @post.id)
       map.address = params[:map][:address]
       map.save
