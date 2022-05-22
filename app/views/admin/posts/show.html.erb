@@ -3,10 +3,10 @@
   <div class="row">
     <div class="col-md-2"></div>
     <%= form_with model: @post,url: admin_post_path do |f| %>
-    <div class="form-group col-md-6">
+    <div class="col-md-6">
       <label>事業化ステータス</label>
       <div class="mb-3"><%= f.radio_button :is_active, "false",checked: true %>保留   <%= f.radio_button :is_active, "true" %>事業化候補</div>
-      <div><%= f.submit "変更を保存",class: "btn btn-success" %></div>
+      <%= f.submit "変更を保存",class: "btn btn-success" %>
       <% end %>
       <%= link_to admin_post_path(@post.id),class: "btn btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" do %>
         投稿を削除
