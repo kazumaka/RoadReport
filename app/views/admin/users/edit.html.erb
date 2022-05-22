@@ -3,7 +3,7 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <label class="mt-4 mb-4 lead lead-font-size bg-secondary text-light"><%= @user.name %>さんの会員情報編集画面</label>
-      <%= form_with model: @user,url: admin_user_path,method: :patch do || %>
+      <%= form_with model: @user,url: admin_user_path,method: :patch do |f| %>
         <div class="form-group mb-3">
           <label>氏名</label>
           <%= f.text_field:name %>
