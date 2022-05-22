@@ -15,11 +15,13 @@ class Public::PostsController < ApplicationController
       map.address = params[:map][:address]
       map.save!
       redirect_to posts_path
+      flash[:notice] = "投稿に成功しました"
     end
   rescue ActiveRecord::RecordInvalid
     @post = Post.new
     @post.build_map
     render :new
+    flash[:alert] = "投稿に失敗しました"
   end
 
   def index
