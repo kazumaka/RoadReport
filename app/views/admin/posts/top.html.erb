@@ -13,7 +13,6 @@
           <th>投稿名</th>
           <th>投稿者</th>
           <th>事業化ステータス</th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -31,11 +30,6 @@
               <label class="text-danger">事業化候補</label>
             <% else %>
               保留
-            <% end %>
-          </td>
-          <td>
-            <%= link_to admin_post_path(@post.id),class: "btn btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" do %>
-              投稿を削除
             <% end %>
           </td>
         </tr>
