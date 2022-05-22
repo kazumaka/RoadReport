@@ -2,6 +2,7 @@
   <%= render 'public/posts/show', post: @post, map: @map %>
   <div class="row">
     <div class="col-md-2"></div>
+    <div class="mt-5 col-md-6"></div>
     <%= form_with model: @post,url: admin_post_path do |f| %>
     <div class="form-group col-md-6">
       <label>事業化ステータス</label>
