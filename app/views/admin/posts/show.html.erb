@@ -1,12 +1,16 @@
 <div class="container">
-
   <%= render 'public/posts/show', post: @post, map: @map %>
-  <%= form_with model: @post,url: admin_post_path do |f| %>
-    <div class="col-md-3"></div>
+  <div class="row">
+    <div class="col-md-2"></div>
+    <%= form_with model: @post,url: admin_post_path do |f| %>
     <div class="form-group col-md-6">
       <label>事業化ステータス</label>
       <%= f.radio_button :is_active, "false",checked: true %>保留   <%= f.radio_button :is_active, "true" %>事業化候補
+      <%= f.submit "変更を保存",class: "btn btn-success" %>
+      <% end %>
+      <%= link_to admin_post_path(@post.id),class: "btn btn-danger",method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+        投稿を削除
+      <% end %>
     </div>
-    <%= f.submit "変更を保存",class: "btn btn-success" %>
-  <% end %>
+  </div>
 </div>

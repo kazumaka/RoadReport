@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     root to: 'posts#top'
     resources :users,only:[:index, :edit, :update]
     resources :maps,only:[:index]
-    resources :posts, only:[:index, :show, :update] do
+    resources :posts, only:[:index, :show, :update, :destroy] do
       member do
         get 'list'
       end
