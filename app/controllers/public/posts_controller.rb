@@ -53,18 +53,15 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    ActiveRecord::Base.transaction do
-      @post = Post.find(params[:id])
-      @post.update(post_params)
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
       @map = @post.map
       @map.address = params[:map][:address]
       @map.update(map_params)
       redirect_to post_path(@post.id)
+    else
+      render :edit
     end
-  rescue ActiveRecord::RecordInvalid
-    @post = Post.new
-    @post.build_map
-    render :new
   end
 
   def destroy
