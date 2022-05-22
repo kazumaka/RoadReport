@@ -18,13 +18,12 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div class="row">
-            <div class="navbar-brand p-3 col-md-2" >
+            <div class="navbar-brand p-3">
               <%= link_to root_path do %>
                 Road Report
               <% end %>
             </div>
-            <div class="col-md-md-3"></div>
-            <div class="collapse navbar-collapse col-md-6" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
                 <li class="nav-item">
@@ -87,7 +86,7 @@
               <% end %>
               </ul>
             </div>
-            <div class="search-box col-md-1">
+            <div class="search-box">
               <% if admin_signed_in? %>
                 <%= search_form_for @search, url: admin_root_path do |f| %>
                   <%= f.text_field :post_name_cont, placeholder: "投稿名を入力" %>
