@@ -1,24 +1,41 @@
-# README
+# Road Report
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+道路整備のための発信サイトです。
+普段利用する道路に関する意見、要望を投稿し、道路管理者と共有することで
+市民のニーズに沿ったインフラ（道路）整備を進めることを目標としました。
 
-Things you may want to cover:
+### サイトテーマ
+普段使う道路への意見を気軽に発信できるサイト
 
-* Ruby version
+### テーマを選んだ理由
+私は現在、道路を設計する会社で働いております。
+道路設計業務は「この道路は渋滞しやすいから道を広げてほしい」や「小学校の通学路に歩道をつけてほしい」
+といった道路を普段利用する方々の声から発注されるケースがあります。
+しかし、私の知る限りではそういった意見、要望は電話での問い合わせなどで発注者側に届けられることが多く
+道路利用者が気軽に意見を発信できる環境ではありません。
+そこで道路に関する意見、要望を投稿できる場を作り、道路管理者側からも閲覧できるようにすれば
+より市民のニーズに沿った道路整備を進められるのではないかと考え、このテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+- 道路利用者（普段から車を運転する人など）
+- 道路管理者
 
-* Configuration
+### 主な利用シーン
+- 道路利用者
+　→普段利用する道路に対する要望がある時
+- 道路管理者
+　→道路利用者からの意見・要望をつかむため、こまめに確認する
 
-* Database creation
+## 設計書
+<...>
 
-* Database initialization
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/14cTNkCHHZWZUGV63D8pqmqV4Ju6enDU-Ik--r-8wISk/edit?usp=sharing>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
