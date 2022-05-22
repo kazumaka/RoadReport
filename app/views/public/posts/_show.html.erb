@@ -2,14 +2,13 @@
     <div class="col-md-2"></div>
     <div class="col-md-4">
       <% if admin_signed_in? %>
-      <label class="mt-4 mb-4 lead bg-light">投稿詳細/編集画面</label>
+      <label class="mt-4 mb-4 lead lead-font-size bg-secondary text-light">投稿詳細/編集画面</label>
       <% else %>
-      <label class="mt-4 mb-4 lead bg-light">投稿詳細画面</label>
+      <label class="mt-4 mb-4 lead lead-font-size bg-secondary text-light">投稿詳細画面</label>
       <% end %>
+      <div class="mt-2">投稿写真</div>
       <div><%= image_tag post.image,size: "200x200" %></div>
-      <div><%= map.address %></div>
-
-
+      <div class="mt-2">住所:<%= map.address %></div>
       <div id="map"></div>
       <style>
         #map {
