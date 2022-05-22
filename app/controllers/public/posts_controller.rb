@@ -60,6 +60,7 @@ class Public::PostsController < ApplicationController
       @map.update(map_params)
       redirect_to post_path(@post.id)
     else
+      @map = @post.map
       render :edit
     end
   end
