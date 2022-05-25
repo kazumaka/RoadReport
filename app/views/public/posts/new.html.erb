@@ -8,8 +8,8 @@
         <%= f.text_field :post_name, placeholder: "○○交差点の渋滞について" %>
       </div>
       <div class="form-group mb-3">
-        <label>道路名</label>
-        <%= f.text_field :road_name, placeholder: "国道○○線" %>
+        <label>道路名/交差点名</label>
+        <%= f.text_field :road_name, placeholder: "国道○○線/○○" %>
       </div>
       <div class="form-group mt-3">
         <label>ご意見・ご要望</label>
@@ -28,6 +28,7 @@
       <% end %>
       <div><%= f.submit "投稿する",class: "btn btn-success mt-5" %></div>
       <% end %>
+      <p class="text-danger">※全項目入力必須です</p>
     </div>
     <div class="col-md-4">
       <input id="address" type="textbox" value="">
